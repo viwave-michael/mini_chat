@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   
   class << self
     def from_omniauth(auth)
+      p auth
+
       provider = auth.provider
       uid = auth.uid
       info = auth.info.symbolize_keys!
