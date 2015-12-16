@@ -17,4 +17,12 @@ class SessionsController < ApplicationController
   def auth_fail
     render text: "You've tried to authenticate via #{params[:strategy]}, but the following error occurred: #{params[:message]}"
   end
+
+  def sign_in
+    p params
+    user = User.find_by(uid: params[:user_id])
+    cookies[:user_id] = user.id
+    flash[:success] = "Hello, #{user.name}!"
+    redirect_to root_url
+  end
 end
