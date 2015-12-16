@@ -19,7 +19,6 @@ class CommentsController < ApplicationController
         format.html { redirect_to root_url }
         format.js { render nothing: true }
       end
-      redirect_to root_url
     end
   end
 
