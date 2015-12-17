@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
       user = User.find_or_initialize_by(uid: uid, provider: provider)
       user.name = info.name
       user.avatar_url = info.image
-      if info.urls
-        user.profile_url = info.urls.send(provider.capitalize.to_sym)
+      if provider == "facebook"
+        user.profile_url = "www.facebook.com/app_scoped_user_id/" + uid
       else
-        user.profile_url = ""
+        user.profile_url = info.urls.send(provider.capitalize.to_sym)
       end
       user.save!
       user
