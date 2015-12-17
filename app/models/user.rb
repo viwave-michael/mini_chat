@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
       user.name = info.name
       user.avatar_url = info.image
       if provider == "facebook"
-        user.profile_url = "www.facebook.com/app_scoped_user_id/" + uid
+        user.profile_url = "https://www.facebook.com/app_scoped_user_id/" + uid
       else
         user.profile_url = info.urls.send(provider.capitalize.to_sym)
       end
