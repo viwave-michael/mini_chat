@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
   class << self
     def from_omniauth(auth)
       # p auth
-      puts auth.methods.sort
+      puts auth.provider.to_s
+      puts auth.info.to_s
+      puts auth.name.to_s
+      puts auth.avatar_url.to_s
 
       provider = auth.provider
       uid = auth.uid
