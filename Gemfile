@@ -42,9 +42,6 @@ gem 'puma'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
 end
 
 group :development do
@@ -55,7 +52,6 @@ group :development do
   gem 'spring'
 end
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
+# To implement server sent event, we use postgresql on all environment.
+gem 'pg'
+gem 'rails_12factor'
