@@ -9,4 +9,8 @@ class Comment < ActiveRecord::Base
       end
     end
   end
+
+  def timestamp
+    created_at.strftime('%-d %B %Y, %H:%M:%S')
+  end
 end
