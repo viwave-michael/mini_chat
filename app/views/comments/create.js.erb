@@ -2,5 +2,5 @@
   alert('Your comment cannot be saved.');
 <% else %>
   $('#comment_body').val('');
-  $('#comments').find("input[type='submit']").val('Submit').prop('disabled', false)
+  $('#new_comment').find("input[type='submit']").val('Submit').prop('disabled', false)
 <% end %>

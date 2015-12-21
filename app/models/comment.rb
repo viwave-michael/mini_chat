@@ -26,9 +26,14 @@ class Comment < ActiveRecord::Base
     created_at.strftime('%-d %B %Y, %H:%M:%S')
   end
 
+  def basic_info_json
+    JSON.generate({ user_name: user.name, user_avatar: user.avatar_url, user_profile: user.profile_url,
+      body: body, timestamp: timestamp})
+  end
+
   private
 
   def notify_comment_added
-    Comment.connection.execute "NOTIFY comments, 'data'"
+    Comment.connection.execute "NOTIFY comments, '#{self.basic_info_json}'"
   end
 end
