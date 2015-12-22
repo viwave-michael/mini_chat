@@ -34,6 +34,7 @@ class Comment < ActiveRecord::Base
   private
 
   def notify_comment_added
-    Comment.connection.execute "NOTIFY comments, '#{self.basic_info_json}'"
+    # Comment.connection.execute "NOTIFY comments, '#{self.basic_info_json}'"
+    Comment.connection.execute "NOTIFY comments, '#{self.id}'"
   end
 end
