@@ -1,3 +1,6 @@
+console.log("create.js.erb executed");
+console.log("body: " + $('#comment_body').val());
+
 <% if !@comment || @comment.errors.any? %>
   alert('Your comment cannot be saved.');
 <% else %>
